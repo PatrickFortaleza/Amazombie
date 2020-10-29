@@ -1,0 +1,11 @@
+<li *ngFor="let slide of slides; let e = index" class="carousel-slide">
+    <section class="meta">
+        <div class="meta-container">
+            <h2>{{ slide.title }}</h2>
+            <h4>{{ slide.subtitle }}</h4>
+            <p>{{ slide.desc }}</p>
+            <a [href]="slide.destLink" class="button">{{ slide.linkText }}</a>
+        </div>
+    </section>
+    <img class="carousel-images" alt="survivalist rally" [src]="slide.imagePath" />
+</li>

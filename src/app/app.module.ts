@@ -9,6 +9,8 @@ import { NavigationComponent } from './header/navigation/navigation.component';
 import { HamburgerComponent } from './header/hamburger/hamburger.component';
 import { CartMetaComponent } from './header/cart-meta/cart-meta.component';
 import { SubHeaderComponent } from './header/sub-header/sub-header.component';
+import { CarouselComponent } from './carousel/carousel.component';
+import { SlideComponent } from './carousel/slide/slide.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { SubHeaderComponent } from './header/sub-header/sub-header.component';
     NavigationComponent,
     HamburgerComponent,
     CartMetaComponent,
-    SubHeaderComponent
+    SubHeaderComponent,
+    CarouselComponent,
+    SlideComponent
   ],
   imports: [
     BrowserModule,

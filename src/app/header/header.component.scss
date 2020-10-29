@@ -114,7 +114,9 @@ app-hamburger{
     position: relative;
     margin: auto;
     margin-left: 0;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     grid-area: header-top-right;
     justify-self: end;
     margin-right: 15px;

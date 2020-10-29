@@ -1,0 +1,129 @@
+
+@import 'src/sass/variables';
+@import 'src/sass/mixins';
+@import 'src/sass/typography';
+@import 'src/sass/layouts';
+
+header {
+    background: $dark-black;
+    background: linear-gradient(201deg, rgba(36,36,36,1) 0%, rgba(0,0,0,1) 100%);
+    transition: .2s ease-in-out;
+    position: fixed;
+    width: 100%;
+    z-index: 50000;
+    
+
+    .wrap {
+
+        @media screen and (max-width: 767px){
+            padding: 0 !important;
+        }
+    }
+}
+
+.svg-cont {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#pseudo-header {
+    display: grid;
+    grid-template-columns: 1fr 140px 40px;
+    grid-auto-rows: auto;
+    grid-template-areas:
+        "header-top-left header-top-mid header-top-right"
+        "header-bottom-left header-bottom-mid header-bottom-right";
+        transition: .2s ease-in-out;
+
+    @media screen and (min-width: 400px){
+        grid-template-columns: 1fr 140px 60px;
+    }
+
+    @media screen and (min-width: 767px){
+        grid-template-columns: 1fr 2fr 160px;
+        grid-template-rows: 1fr 0;
+    }
+}
+
+
+app-logo{
+    padding-left: 15px;
+
+    @media screen and (min-width: 767px){
+        padding-left: 0;
+    }
+}
+
+app-navigation {
+    display: flex;
+    justify-self: stretch;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    background: $black;
+    transition: all .1s ease-in-out;
+    max-height: 0;
+    transform: scaleY(0);
+    overflow-y: hidden;
+    transform-origin: top;
+
+    &.active{
+        max-height: 100%;
+        transform: scaleY(1);
+    }
+
+    @media screen and (min-width: 767px){
+        grid-area: header-top-mid;
+        justify-self: end;
+        background: unset;
+        max-height: 100% !important;
+        transform: scaleY(1) !important;
+    }
+}
+
+app-cart-meta{
+    text-decoration: none;
+    display: flex;
+    justify-self: end;
+    flex-direction: column;
+    justify-content: space-around;
+    grid-area: header-top-mid;
+    margin-right: 25px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+
+    @media screen and (min-width: 400px){
+        margin-right: unset;
+        margin-left: 25px;
+    }
+
+    @media screen and (min-width: 767px){
+        grid-area: header-top-right;
+    }
+}
+
+
+app-hamburger{
+    width: 30px;
+    height: 30px;
+    margin-top: 30px;
+    cursor: pointer;
+    position: relative;
+    margin: auto;
+    margin-left: 0;
+    display: block;
+    grid-area: header-top-right;
+    justify-self: end;
+    margin-right: 15px;
+    margin-left: unset;
+    padding-top: 3px;
+    padding-bottom: 3px;
+
+    @media screen and (min-width: 767px){
+        display: none;
+        margin-right: 0;
+    }
+}

@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-cart-meta',
   templateUrl: './cart-meta.component.html',
-  styleUrls: ['./cart-meta.component.css']
+  styleUrls: ['./cart-meta.component.scss']
 })
 export class CartMetaComponent implements OnInit {
 

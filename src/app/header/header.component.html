@@ -4,8 +4,8 @@
         <div class="wrap">
             <div id="pseudo-header">
                 <app-logo></app-logo>
-                <app-navigation></app-navigation>
-                <app-hamburger></app-hamburger>
+                <app-navigation [className]="this.menuActive ? 'active' : ''"></app-navigation>
+                <app-hamburger (toggleMenu)="onToggle($event)"></app-hamburger>
                 <app-cart-meta></app-cart-meta>
             </div>
         </div>

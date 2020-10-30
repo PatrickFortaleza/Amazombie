@@ -8,13 +8,43 @@ import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 export class CarouselComponent implements AfterViewInit {
   @ViewChild('carouseltrack') ul: ElementRef
 
-  track: object = {};
+  track: HTMLElement = null;
+  currentSlide: HTMLElement = null;
+  nextSlide: HTMLElement = null;
   // eventClicked = new EventEmitter();
   
   ngAfterViewInit(){
-    console.log(this.ul.nativeElement)
-    this.track = this.ul.nativeElement
+    this.getCurrentSlide();
+    // this.nextSlide = this.currentSlide.next()
+    this.track = this.ul.nativeElement as HTMLElement;
   }
+
+  getCurrentSlide(){
+    let slides: Array<HTMLElement> = Array.from(this.ul.nativeElement.children[0].children)
+    let result: Array<HTMLElement> = slides.filter((slide) => {
+      if(slide.classList.contains('current-slide')){
+        console.log('true');
+        return slide;
+      }
+    });
+    this.currentSlide = result[0];
+    this.nextSlide = this.currentSlide.nextSibling as HTMLElement;
+  }
+
+  moveToSlide(){
+    console.log(this.nextSlide.style.left)
+    this.track.style.transform = `translateX(-${this.nextSlide.style.left})`
+    this.currentSlide.classList.remove('current-slide');
+    this.nextSlide.classList.add('current-slide');
+    this.getCurrentSlide();
+  }
+
+  clickNext($event){
+    $event.preventDefault();
+    console.log('clicked');
+    this.moveToSlide();
+  }
+
   constructor() { }
 
   ngOnInit(): void {

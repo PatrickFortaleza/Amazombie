@@ -7,8 +7,10 @@ import { Slide } from '../slide.model';
   styleUrls: ['./slide.component.scss']
 })
 export class SlideComponent implements AfterViewInit {
+  // Init state
   sliders: Array<object> = [];
   slideWidth: number = 0;
+
   slides: Slide[] = [
     new Slide(
       'Conquer', 
@@ -36,14 +38,26 @@ export class SlideComponent implements AfterViewInit {
   @ViewChildren('slide') components:QueryList<ElementRef>;
 
   ngAfterViewInit(){
-    console.log(this.components.toArray());
-    this.sliders=this.components.toArray();
-    this.slideWidth = this.components.toArray()[0].nativeElement.getBoundingClientRect().width
+    // Save slides to state
+    this.sliders = this.components.toArray();
+    // get slide width and set it to state
+    this.slideWidth = this.getSlideWidth();
+    // gets slide width from state and positions slide
+    this.positionSlides(this.components);
 
-    this.components.forEach((child, index) => {
-      child.nativeElement.style.left = `${this.slideWidth * index}px`; 
+  }
+
+  getSlideWidth(){
+    return this.components.toArray()[0].nativeElement.getBoundingClientRect().width
+  }
+
+  positionSlides(array: QueryList<ElementRef>){
+    array.forEach((child, index) => {
+      child.nativeElement.style.left = `${this.slideWidth * index}px`;
+      if(index === 0){ child.nativeElement.classList.add('current-slide')}
     })
   }
+
   constructor() { }
 
   ngOnInit(): void {

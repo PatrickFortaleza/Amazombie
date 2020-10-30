@@ -11,6 +11,7 @@ import { CartMetaComponent } from './header/cart-meta/cart-meta.component';
 import { SubHeaderComponent } from './header/sub-header/sub-header.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { SlideComponent } from './carousel/slide/slide.component';
+import { NextButtonComponent } from './carousel/next-button/next-button.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { SlideComponent } from './carousel/slide/slide.component';
     CartMetaComponent,
     SubHeaderComponent,
     CarouselComponent,
-    SlideComponent
+    SlideComponent,
+    NextButtonComponent
   ],
   imports: [
     BrowserModule,

@@ -2,7 +2,8 @@
 <div class="carousel">
     <div class="carousel-track-container">
         <ul #carouseltrack class="carousel-track">
-            <app-slide></app-slide>
+            <app-slide ></app-slide>
         </ul>
     </div> <!--end carousel__track-container-->
+    <app-next-button (click)="clickNext($event)"></app-next-button>
 </div> <!--end carousel -->

@@ -11,10 +11,13 @@ export class CarouselComponent implements AfterViewInit {
   track: HTMLElement = null;
   currentSlide: HTMLElement = null;
   nextSlide: HTMLElement = null;
+  allSlides: Array<HTMLElement>;
   
   ngAfterViewInit(){
     this.getCurrentSlide();
     this.track = this.ul.nativeElement as HTMLElement;
+    let slides: Array<HTMLElement> = Array.from(this.ul.nativeElement.children[0].children);
+    this.allSlides = slides;
   }
 
   getCurrentSlide(){
@@ -56,6 +59,17 @@ export class CarouselComponent implements AfterViewInit {
       this.nextSlide = this.currentSlide.nextSibling as HTMLElement;
     }
     this.moveToSlide(this.track, this.currentSlide, this.nextSlide);
+  }
+
+  onResize($event){
+    console.log('resizing');
+    setTimeout(() => {
+      this.setTrackPosition(this.currentSlide);
+    }, 500)
+  }
+
+  setTrackPosition(slide){
+    this.track.style.transform = `translateX(-${slide.style.left})`;
   }
 
   constructor() { }

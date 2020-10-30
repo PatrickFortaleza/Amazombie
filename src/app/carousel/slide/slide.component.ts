@@ -50,6 +50,12 @@ export class SlideComponent implements AfterViewInit {
 
   }
 
+  onResize($event){
+    this.slideWidth = this.getSlideWidth();
+    // gets slide width from state and positions slide
+    this.positionSlides(this.components);
+  }
+
   getSlideWidth(){
     return this.components.toArray()[0].nativeElement.getBoundingClientRect().width
   }

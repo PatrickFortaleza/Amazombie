@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, AfterViewInit, ViewChildren, QueryList, ElementRef  } from '@angular/core';
 import { Slide } from '../slide.model';
 
 @Component({
@@ -6,7 +6,9 @@ import { Slide } from '../slide.model';
   templateUrl: './slide.component.html',
   styleUrls: ['./slide.component.scss']
 })
-export class SlideComponent implements OnInit {
+export class SlideComponent implements AfterViewInit {
+  sliders: Array<object> = [];
+  slideWidth: number = 0;
   slides: Slide[] = [
     new Slide(
       'Conquer', 
@@ -30,6 +32,18 @@ export class SlideComponent implements OnInit {
         '#',
         'Find out how'),
   ]
+
+  @ViewChildren('slide') components:QueryList<ElementRef>;
+
+  ngAfterViewInit(){
+    console.log(this.components.toArray());
+    this.sliders=this.components.toArray();
+    this.slideWidth = this.components.toArray()[0].nativeElement.getBoundingClientRect().width
+
+    this.components.forEach((child, index) => {
+      child.nativeElement.style.left = `${this.slideWidth * index}px`; 
+    })
+  }
   constructor() { }
 
   ngOnInit(): void {

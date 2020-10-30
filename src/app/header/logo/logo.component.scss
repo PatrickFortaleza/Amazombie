@@ -3,7 +3,7 @@
 @import 'src/sass/mixins';
 @import 'src/sass/typography';
 
-.logo-container >>> .logo, .logo-container >>> #logo {
+.logo-container .logo, .logo-container #logo {
     max-height: 50px;
     max-width: 125px;
     justify-self: start;

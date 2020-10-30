@@ -12,6 +12,7 @@ import { SubHeaderComponent } from './header/sub-header/sub-header.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { SlideComponent } from './carousel/slide/slide.component';
 import { NextButtonComponent } from './carousel/next-button/next-button.component';
+import { PrevButtonComponent } from './carousel/prev-button/prev-button.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { NextButtonComponent } from './carousel/next-button/next-button.componen
     SubHeaderComponent,
     CarouselComponent,
     SlideComponent,
-    NextButtonComponent
+    NextButtonComponent,
+    PrevButtonComponent
   ],
   imports: [
     BrowserModule,

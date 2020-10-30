@@ -11,11 +11,9 @@ export class CarouselComponent implements AfterViewInit {
   track: HTMLElement = null;
   currentSlide: HTMLElement = null;
   nextSlide: HTMLElement = null;
-  // eventClicked = new EventEmitter();
   
   ngAfterViewInit(){
     this.getCurrentSlide();
-    // this.nextSlide = this.currentSlide.next()
     this.track = this.ul.nativeElement as HTMLElement;
   }
 
@@ -27,24 +25,37 @@ export class CarouselComponent implements AfterViewInit {
       }
     });
     this.currentSlide = result[0];
+  }
+
+  moveToSlide(track, current, next){
+    track.style.transform = `translateX(-${this.nextSlide.style.left})`
+    current.classList.remove('current-slide');
+    next.classList.add('current-slide');
+    this.getCurrentSlide();
+  }
+
+  clickPrev($event){
+    $event.preventDefault();
+    let slides: Array<HTMLElement> = Array.from(this.ul.nativeElement.children[0].children)
+    this.getCurrentSlide();
+    if(this.currentSlide == slides[0]){
+      this.nextSlide = slides[slides.length - 1] as HTMLElement;
+    }else{
+      this.nextSlide = this.currentSlide.previousSibling as HTMLElement;
+    }
+    this.moveToSlide(this.track, this.currentSlide, this.nextSlide);
+  }
+
+  clickNext($event){
+    $event.preventDefault();
+    let slides: Array<HTMLElement> = Array.from(this.ul.nativeElement.children[0].children)
+    this.getCurrentSlide();
     if(this.currentSlide == slides[slides.length - 1]){
       this.nextSlide = slides[0] as HTMLElement;
     }else{
       this.nextSlide = this.currentSlide.nextSibling as HTMLElement;
     }
-  }
-
-  moveToSlide(){
-    console.log(this.nextSlide.style.left)
-    this.track.style.transform = `translateX(-${this.nextSlide.style.left})`
-    this.currentSlide.classList.remove('current-slide');
-    this.nextSlide.classList.add('current-slide');
-    this.getCurrentSlide();
-  }
-
-  clickNext($event){
-    $event.preventDefault();
-    this.moveToSlide();
+    this.moveToSlide(this.track, this.currentSlide, this.nextSlide);
   }
 
   constructor() { }

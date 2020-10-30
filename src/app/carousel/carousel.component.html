@@ -5,5 +5,18 @@
             <app-slide ></app-slide>
         </ul>
     </div> <!--end carousel__track-container-->
-    <app-next-button (click)="clickNext($event)"></app-next-button>
+    <section class="carousel-controls">
+      <div class="carousel-controls-wrap">
+          <div class="carousel__buttons">
+            <app-prev-button (click)="clickPrev($event)"></app-prev-button>
+            <app-next-button (click)="clickNext($event)"></app-next-button>
+          </div>
+  
+          <div class="carousel__nav">
+              <button class="carousel__indicator current-slide"></button>
+              <button class="carousel__indicator"></button>
+              <button class="carousel__indicator"></button>
+          </div> <!-- end carousel__nav-->
+      </div>
+  </section>
 </div> <!--end carousel -->

@@ -23,12 +23,15 @@ export class CarouselComponent implements AfterViewInit {
     let slides: Array<HTMLElement> = Array.from(this.ul.nativeElement.children[0].children)
     let result: Array<HTMLElement> = slides.filter((slide) => {
       if(slide.classList.contains('current-slide')){
-        console.log('true');
         return slide;
       }
     });
     this.currentSlide = result[0];
-    this.nextSlide = this.currentSlide.nextSibling as HTMLElement;
+    if(this.currentSlide == slides[slides.length - 1]){
+      this.nextSlide = slides[0] as HTMLElement;
+    }else{
+      this.nextSlide = this.currentSlide.nextSibling as HTMLElement;
+    }
   }
 
   moveToSlide(){
@@ -41,7 +44,6 @@ export class CarouselComponent implements AfterViewInit {
 
   clickNext($event){
     $event.preventDefault();
-    console.log('clicked');
     this.moveToSlide();
   }
 

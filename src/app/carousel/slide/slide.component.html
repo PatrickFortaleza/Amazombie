@@ -1,4 +1,4 @@
-<li *ngFor="let slide of slides; let e = index" #slide class="carousel-slide">
+<li *ngFor="let slide of slides; let e = index" #slide [id]="slide.id" class="carousel-slide">
     <section class="meta">
         <div class="meta-container">
             <h2>{{ slide.title }}</h2>

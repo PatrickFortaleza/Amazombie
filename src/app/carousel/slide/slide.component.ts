@@ -18,21 +18,24 @@ export class SlideComponent implements AfterViewInit {
       'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime reiciendis voluptatum praesentium sit earum consequatur, quia quam provident omnis soluta?',
       '/assets/images/carousel-slide-1.png',
       '#',
-      'See subscriptions'),
+      'See subscriptions',
+      '1'),
       new Slide(
       'Fight Zombies', 
       'Without losing your kill streak.', 
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit tempore ducimus aut? Voluptatibus, architecto aut aperiam officiis harum assumenda ullam?',
       '/assets/images/carousel-slide-2.png',
       '#',
-      'Subscribe Now'),
+      'Subscribe Now',
+      '2'),
       new Slide(
         'Protect Eachother', 
         'But most importantly, our freedom.', 
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima voluptates enim, ullam soluta omnis distinctio, deserunt esse porro adipisci nihil sunt error!',
         '/assets/images/carousel-slide-3.png',
         '#',
-        'Find out how'),
+        'Find out how',
+        '3'),
   ]
 
   @ViewChildren('slide') components:QueryList<ElementRef>;

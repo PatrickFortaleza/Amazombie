@@ -43,6 +43,16 @@ export class CarouselComponent implements AfterViewInit{
     this.currentSlide = result[0];
   }
 
+  getCurrentDot(){
+    let dots: Array<HTMLElement> = Array.from(this.div.nativeElement.children)
+    let result: Array<HTMLElement> = dots.filter((dot) => {
+      if(dot.classList.contains('current-slide')){
+        return dot;
+      }
+    });
+    this.currentDot = result[0];
+  }
+
   // Moves slide left or right
   moveToSlide(track, current, next){
     // based on the next slide, translate the track to the correct position
@@ -58,24 +68,37 @@ export class CarouselComponent implements AfterViewInit{
   clickPrev($event){
     $event.preventDefault();
     let slides: Array<HTMLElement> = Array.from(this.ul.nativeElement.children[0].children)
+    let dots: Array<HTMLElement> = Array.from(this.div.nativeElement.children)
     this.getCurrentSlide();
     if(this.currentSlide == slides[0]){
       this.nextSlide = slides[slides.length - 1] as HTMLElement;
     }else{
       this.nextSlide = this.currentSlide.previousSibling as HTMLElement;
     }
+    this.getCurrentDot();
+    let nextDot = this.currentDot.previousSibling;
+    if (nextDot === null) nextDot = dots[slides.length-1] 
+
+    this.updateDots(this.currentDot, nextDot);
     this.moveToSlide(this.track, this.currentSlide, this.nextSlide);
   }
 
   clickNext($event){
     $event.preventDefault();
     let slides: Array<HTMLElement> = Array.from(this.ul.nativeElement.children[0].children)
+    let dots: Array<HTMLElement> = Array.from(this.div.nativeElement.children)
     this.getCurrentSlide();
     if(this.currentSlide == slides[slides.length - 1]){
       this.nextSlide = slides[0] as HTMLElement;
     }else{
       this.nextSlide = this.currentSlide.nextSibling as HTMLElement;
     }
+    this.getCurrentDot();
+    let nextDot = this.currentDot.nextSibling;
+    if (this.currentDot === dots[slides.length - 1]) nextDot = dots[0]
+    console.log(nextDot); 
+
+    this.updateDots(this.currentDot, nextDot);
     this.moveToSlide(this.track, this.currentSlide, this.nextSlide);
   }
 
@@ -93,7 +116,13 @@ export class CarouselComponent implements AfterViewInit{
 
     let targetIndex = dots.findIndex(dot => dot == targetDot);
     let targetSlide: HTMLElement = slides[targetIndex];
+    this.updateDots(this.currentDot, targetDot);
     this.moveToSlide(this.track, this.currentSlide, targetSlide);
+  }
+
+  updateDots(currentDot, targetDot){
+    currentDot.classList.remove('current-slide');
+    targetDot.classList.add('current-slide')
   }
 
   // detect windor resizing and reposition track

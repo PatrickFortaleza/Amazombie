@@ -1,0 +1,32 @@
+@import 'src/sass/variables';
+@import 'src/sass/mixins';
+@import 'src/sass/typography';
+@import 'src/sass/layouts';
+
+h4{
+  text-transform: uppercase;
+  font-size: 17px;
+  margin-bottom: 15px;
+}
+.footer-social {
+
+  li {
+      margin-bottom: 25px;
+  }
+
+  li a {
+      display: flex;
+      text-decoration: none;
+
+      svg {
+          fill: $grey;
+          width: 17px;
+      }
+
+      h5{
+          @include body-light;
+          color: $grey;
+          margin-left: 25px;
+      }
+  }
+}

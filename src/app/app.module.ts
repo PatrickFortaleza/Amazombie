@@ -16,6 +16,11 @@ import { PrevButtonComponent } from './carousel/prev-button/prev-button.componen
 import { HomeContentComponent } from './home-content/home-content.component';
 import { CardSpreadComponent } from './home-content/card-spread/card-spread.component';
 import { CardComponent } from './home-content/card-spread/card/card.component';
+import { FooterComponent } from './footer/footer.component';
+import { BrandComponent } from './footer/brand/brand.component';
+import { FooterNavComponent } from './footer/footer-nav/footer-nav.component';
+import { FooterSocialComponent } from './footer/footer-social/footer-social.component';
+import { SubscribeComponent } from './footer/subscribe/subscribe.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +37,12 @@ import { CardComponent } from './home-content/card-spread/card/card.component';
     PrevButtonComponent,
     HomeContentComponent,
     CardSpreadComponent,
-    CardComponent
+    CardComponent,
+    FooterComponent,
+    BrandComponent,
+    FooterNavComponent,
+    FooterSocialComponent,
+    SubscribeComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,13 @@
+@import 'src/sass/variables';
+@import 'src/sass/mixins';
+@import 'src/sass/typography';
+@import 'src/sass/layouts';
+
+
+p{
+  @include body-light;
+}
+
+p.mime{
+  font-size: .5em;
+}

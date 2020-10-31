@@ -13,6 +13,9 @@ import { CarouselComponent } from './carousel/carousel.component';
 import { SlideComponent } from './carousel/slide/slide.component';
 import { NextButtonComponent } from './carousel/next-button/next-button.component';
 import { PrevButtonComponent } from './carousel/prev-button/prev-button.component';
+import { HomeContentComponent } from './home-content/home-content.component';
+import { CardSpreadComponent } from './home-content/card-spread/card-spread.component';
+import { CardComponent } from './home-content/card-spread/card/card.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import { PrevButtonComponent } from './carousel/prev-button/prev-button.componen
     CarouselComponent,
     SlideComponent,
     NextButtonComponent,
-    PrevButtonComponent
+    PrevButtonComponent,
+    HomeContentComponent,
+    CardSpreadComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,

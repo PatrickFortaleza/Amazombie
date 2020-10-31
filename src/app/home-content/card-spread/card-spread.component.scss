@@ -1,0 +1,13 @@
+@import 'src/sass/variables';
+@import 'src/sass/mixins';
+@import 'src/sass/typography';
+@import 'src/sass/layouts';
+
+#home-section-01 {
+  background: $dark-black;
+  border-top: 5px solid $dark-ruby;
+
+  h3 {
+      margin-bottom: 10px;
+  }
+}

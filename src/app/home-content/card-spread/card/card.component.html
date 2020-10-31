@@ -1,0 +1,12 @@
+<div class="card-spread">
+  <ul class="card-list" >
+    <li  *ngFor="let card of cards; let e = index" uk-scrollspy-class="uk-animation-slide-bottom">
+      <p class="meta">{{ card.id }}</p>
+      <div class="svg-cont">
+        <img [src]="card.svgCode" alt="icon"/>
+      </div>
+      <h4 class="hightlight uppercase">{{ card.title }}</h4>
+      <p>{{ card.description }}</p>
+    </li>
+  </ul>
+</div>

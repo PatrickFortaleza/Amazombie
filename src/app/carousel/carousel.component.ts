@@ -1,5 +1,6 @@
-import { Component, AfterViewInit, ViewChild, ElementRef, ChangeDetectorRef } from '@angular/core';
+import { Component, AfterViewInit, OnInit, ViewChild, ElementRef, ChangeDetectorRef } from '@angular/core';
 import { SlideComponent } from './slide/slide.component';
+import { interval, Subscription } from 'rxjs';
 import { Slide } from './slide.model';
 
 @Component({
@@ -14,12 +15,24 @@ export class CarouselComponent implements AfterViewInit{
   @ViewChild(SlideComponent) child;
 
   // Initiate state variables
+  subscription: Subscription;
   track: HTMLElement = null;
   carouselnav: HTMLElement = null;
   slides: Slide [] = [];
   currentSlide: HTMLElement = null;
   nextSlide: HTMLElement = null;
   currentDot: HTMLElement = null;
+  isHover: Boolean = false;
+
+  ngOnInit(){
+    const source = interval(4000);
+    const text = 'Your Text Here';
+    this.subscription = source.subscribe(val => {
+      if(!this.isHover) {
+        this.clickNext(null)
+      }
+    });
+  }
 
   ngAfterViewInit(){
     this.getCurrentSlide();
@@ -27,6 +40,10 @@ export class CarouselComponent implements AfterViewInit{
     this.carouselnav = this.div.nativeElement as HTMLElement;
     this.slides = this.child.slides
     this.cdr.detectChanges();
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
   // Sets the current slide object
@@ -42,6 +59,7 @@ export class CarouselComponent implements AfterViewInit{
     // Attach result to currentSlide state variable
     this.currentSlide = result[0];
   }
+
 
   getCurrentDot(){
     let dots: Array<HTMLElement> = Array.from(this.div.nativeElement.children)
@@ -66,7 +84,7 @@ export class CarouselComponent implements AfterViewInit{
   }
 
   clickPrev($event){
-    $event.preventDefault();
+    if ($event){$event.preventDefault();}
     let slides: Array<HTMLElement> = Array.from(this.ul.nativeElement.children[0].children)
     let dots: Array<HTMLElement> = Array.from(this.div.nativeElement.children)
     this.getCurrentSlide();
@@ -84,7 +102,7 @@ export class CarouselComponent implements AfterViewInit{
   }
 
   clickNext($event){
-    $event.preventDefault();
+    if ($event){$event.preventDefault();}
     let slides: Array<HTMLElement> = Array.from(this.ul.nativeElement.children[0].children)
     let dots: Array<HTMLElement> = Array.from(this.div.nativeElement.children)
     this.getCurrentSlide();
@@ -96,7 +114,6 @@ export class CarouselComponent implements AfterViewInit{
     this.getCurrentDot();
     let nextDot = this.currentDot.nextSibling;
     if (this.currentDot === dots[slides.length - 1]) nextDot = dots[0]
-    console.log(nextDot); 
 
     this.updateDots(this.currentDot, nextDot);
     this.moveToSlide(this.track, this.currentSlide, this.nextSlide);
@@ -123,6 +140,14 @@ export class CarouselComponent implements AfterViewInit{
   updateDots(currentDot, targetDot){
     currentDot.classList.remove('current-slide');
     targetDot.classList.add('current-slide')
+  }
+
+  hoverOn(){
+    this.isHover = true;
+  }
+
+  hoverOff(){
+    this.isHover = false;
   }
 
   // detect windor resizing and reposition track

@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, OnInit, ViewChild, ElementRef, ChangeDetectorRef } from '@angular/core';
+import { Component, AfterViewInit, ViewChild, ElementRef, ChangeDetectorRef } from '@angular/core';
 import { SlideComponent } from './slide/slide.component';
 import { interval, Subscription } from 'rxjs';
 import { Slide } from './slide.model';

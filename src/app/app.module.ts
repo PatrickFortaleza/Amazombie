@@ -21,6 +21,9 @@ import { BrandComponent } from './footer/brand/brand.component';
 import { FooterNavComponent } from './footer/footer-nav/footer-nav.component';
 import { FooterSocialComponent } from './footer/footer-social/footer-social.component';
 import { SubscribeComponent } from './footer/subscribe/subscribe.component';
+import { FigureComponent } from './home-content/figure/figure.component';
+import { TestimonialsComponent } from './home-content/testimonials/testimonials.component';
+import { TestimonialComponent } from './home-content/testimonials/testimonial/testimonial.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +45,10 @@ import { SubscribeComponent } from './footer/subscribe/subscribe.component';
     BrandComponent,
     FooterNavComponent,
     FooterSocialComponent,
-    SubscribeComponent
+    SubscribeComponent,
+    FigureComponent,
+    TestimonialsComponent,
+    TestimonialComponent
   ],
   imports: [
     BrowserModule,

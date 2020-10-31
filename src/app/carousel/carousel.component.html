@@ -1,5 +1,4 @@
-<p>carousel works!</p>
-<div class="carousel" (window:resize)="onResize($event)">
+<div class="carousel" (window:resize)="onResize()">
     <div class="carousel-track-container">
         <ul #carouseltrack class="carousel-track">
             <app-slide ></app-slide>
@@ -12,10 +11,8 @@
             <app-next-button (click)="clickNext($event)"></app-next-button>
           </div>
   
-          <div class="carousel__nav">
-              <button class="carousel__indicator current-slide"></button>
-              <button class="carousel__indicator"></button>
-              <button class="carousel__indicator"></button>
+          <div #carouselnav class="carousel__nav">
+              <button *ngFor="let slide of slides; first as isFirst;" [class]="isFirst ? 'carousel__indicator current-slide' : 'carousel__indicator'" (click)="navClick($event)"></button>
           </div> <!-- end carousel__nav-->
       </div>
   </section>

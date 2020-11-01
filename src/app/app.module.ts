@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
 import { simpleReducer } from './simple.reducer'
+import { productReducer } from './home-content/products/products.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment'; // Angular CLI environment
 
@@ -59,7 +60,7 @@ import { ProductsComponent } from './home-content/products/products.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({ cart: simpleReducer }),
+    StoreModule.forRoot({ products: productReducer }),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
       logOnly: environment.production, // Restrict extension to log-only mode

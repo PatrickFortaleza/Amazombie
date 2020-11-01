@@ -32,11 +32,10 @@ export class ProductsComponent implements OnInit {
     if(!targetProduct) return null;
 
     this.store.dispatch(add({ item: targetProduct }));
-    
   }
 
   ngOnInit(): void {
-    console.log(Products);
+    console.log(this.cart$)
   }
 
 }

@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { add } from './products.actions';
 
 interface AppState {
-  products: Array<Object>
+  cart: Array<Object>
 }
 
 @Component({
@@ -15,10 +15,10 @@ interface AppState {
 })
 export class ProductsComponent implements OnInit {
 
-  products$: Observable<Array<Object>>
+  cart$: Observable<Array<Object>>
 
-  constructor(private store: Store<{ products: Array<Object>}>) {
-    this.products$ = this.store.select('products');
+  constructor(private store: Store<{ cart: Array<Object>}>) {
+    this.cart$ = this.store.select('cart');
   }
 
   addProduct($event){
@@ -31,10 +31,6 @@ export class ProductsComponent implements OnInit {
     let targetProduct: Object = result[0];
     if(!targetProduct) return null;
 
-    // this.store.dispatch({
-    //   type: 'ADD',
-    //   props: 
-    // })
     this.store.dispatch(add({ item: targetProduct }));
     
   }

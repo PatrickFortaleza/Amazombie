@@ -7,7 +7,7 @@ export interface State {
 }
 
 export const initialState = {
-  cart: [{}],
+  cart: [],
 };
 
 const _productReducer = createReducer(

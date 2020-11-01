@@ -1,7 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+
 import { StoreModule } from '@ngrx/store';
-import { productReducer } from './home-content/products/products.reducer';
+import { reducer } from './reducers/product.reducer';
+
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment'; // Angular CLI environment
 
@@ -28,7 +30,8 @@ import { SubscribeComponent } from './footer/subscribe/subscribe.component';
 import { FigureComponent } from './home-content/figure/figure.component';
 import { TestimonialsComponent } from './home-content/testimonials/testimonials.component';
 import { TestimonialComponent } from './home-content/testimonials/testimonial/testimonial.component';
-import { ProductsComponent } from './home-content/products/products.component';
+import { ProductsComponent } from './products/products.component';
+
 
 @NgModule({
   declarations: [
@@ -54,12 +57,14 @@ import { ProductsComponent } from './home-content/products/products.component';
     FigureComponent,
     TestimonialsComponent,
     TestimonialComponent,
-    ProductsComponent
+    ProductsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({ cart: productReducer }),
+    StoreModule.forRoot({
+      product: reducer
+    }),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
       logOnly: environment.production, // Restrict extension to log-only mode

@@ -1,32 +1,59 @@
-import { Component, OnInit } from '@angular/core';
-import { State, Store } from '@ngrx/store';
-import { Observable } from 'rxjs'; 
-import { take } from 'rxjs/operators';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Observable, bindCallback } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { Product } from '../../models/product.model';
+import { AppState } from '../../app.state';
+import { map, filter, switchMap } from 'rxjs/operators'
+import { Products } from 'src/data/products';
 
-interface AppState {
-  cart: Array<Object>
-}
 
 @Component({
   selector: 'app-cart-meta',
   templateUrl: './cart-meta.component.html',
   styleUrls: ['./cart-meta.component.scss']
 })
-export class CartMetaComponent implements OnInit {
+export class CartMetaComponent implements OnInit, AfterViewInit {
 
-  cart$: Array<Object>
-  
-  constructor(private store: Store<AppState>) { 
-    // this.cart$ = this.store.select(AppState => AppState.cart);
-    let state: Array<Object>;
+  products: Observable<Product[]>;
+  total: Observable<void>;
+  data;
 
-    store.select('cart').pipe(take(1)).subscribe(s => state = s);
-    this.cart$ = state; 
-    console.log(Array.from(this.cart$));
+  constructor(private store: Store<AppState>){
+    this.products = store.select('product');
   }
 
+  getData(){
+    this.products.subscribe(val => {
+      console.log(val)
+      this.data = val
+    })
+    return this.data;
+  }
+
+  async getTotal(){
+    try {
+      const result = await this.getData();
+      if(!result) return null;
+      this.total = result.reduce((a,b) => a + b.price, 0)
+    } catch (err){
+      console.log(err)
+    }
+    // let result = this.data.reduce((a,b) => a + b.price, 0);
+    // this.total = result;
+  }
+
+  // getTotal(){
+  //   console.log('got it')
+  // }
+
   ngOnInit(): void {
-    console.log(this.cart$);
+    // this.total = this.products.pipe(map(arr => {arr.reduce((a,b) => a + b.price, 0)}))
+    // console.log(this.total);
+    this.getTotal();
+  }
+
+  ngAfterViewInit(): void {
+    // console.log(this.getData())
   }
 
 }

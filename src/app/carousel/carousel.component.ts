@@ -29,7 +29,7 @@ export class CarouselComponent implements AfterViewInit{
     const text = 'Your Text Here';
     this.subscription = source.subscribe(val => {
       if(!this.isHover) {
-        this.clickNext(null)
+        this.clickNext()
       }
     });
   }
@@ -101,8 +101,8 @@ export class CarouselComponent implements AfterViewInit{
     this.moveToSlide(this.track, this.currentSlide, this.nextSlide);
   }
 
-  clickNext($event){
-    if ($event){$event.preventDefault();}
+  clickNext(){
+    // if ($event){$event.preventDefault();}
     let slides: Array<HTMLElement> = Array.from(this.ul.nativeElement.children[0].children)
     let dots: Array<HTMLElement> = Array.from(this.div.nativeElement.children)
     this.getCurrentSlide();

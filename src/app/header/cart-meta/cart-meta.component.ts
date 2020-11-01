@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs'; 
+
+interface AppState {
+  cart: Array<Object>
+}
 
 @Component({
   selector: 'app-cart-meta',
@@ -7,7 +13,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartMetaComponent implements OnInit {
 
-  constructor() { }
+  cart$: Observable<Object>
+  constructor(private store: Store<AppState>) { 
+    this.cart$ = this.store.select('cart');
+  }
 
   ngOnInit(): void {
   }

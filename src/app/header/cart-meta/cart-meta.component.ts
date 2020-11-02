@@ -14,15 +14,10 @@ export class CartMetaComponent implements OnInit, AfterViewInit {
 
   products: Observable<Array<Product>>;
   total: Observable<Number>;
-  data;
 
   constructor(private store: Store<AppState>){
-    // @ts-ignore: this is super hacky
-    this.total = store.select('product', 'total');
-    // this.products = store.select('product', 'products')
+    this.total = store.select(AppState => AppState.product.total);
   }
-
-
 
   ngOnInit(): void {
   }

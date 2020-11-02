@@ -31,6 +31,7 @@ import { FigureComponent } from './home-content/figure/figure.component';
 import { TestimonialsComponent } from './home-content/testimonials/testimonials.component';
 import { TestimonialComponent } from './home-content/testimonials/testimonial/testimonial.component';
 import { ProductsComponent } from './products/products.component';
+import { ProductItemComponent } from './products/product-item/product-item.component';
 
 
 @NgModule({
@@ -58,6 +59,7 @@ import { ProductsComponent } from './products/products.component';
     TestimonialsComponent,
     TestimonialComponent,
     ProductsComponent,
+    ProductItemComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,4 @@
-import { Product } from './models/product.model';
-import { State } from './reducers/product.reducer'
+import { State } from './models/state.model'
 
 export interface AppState {
   readonly product: State;

@@ -1,12 +1,6 @@
-import { Action } from '@ngrx/store'
-import { Product } from './../models/product.model'
+import { State } from './../models/state.model'
 import * as ProductActions from './../actions/product.actions'
 
-
-export interface State {
-  products: Array<Product>,
-  total: Number
-}
 
 const initialState: State = {
   products: [

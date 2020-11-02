@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { StoreModule } from '@ngrx/store';
-import { reducer } from './reducers/product.reducer';
+import { reducer } from '../data/reducers/product.reducer';
 
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment'; // Angular CLI environment

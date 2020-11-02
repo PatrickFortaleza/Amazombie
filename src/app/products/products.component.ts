@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { AppState } from './../app.state';
-import { Product } from '../models/product.model'
-import * as ProductActions from '../actions/product.actions';
+import { AppState } from '../../data/app.state';
+import { Product } from '../../data/models/product.model'
+import * as ProductActions from '../../data/actions/product.actions';
 import { Observable } from 'rxjs';
-import { Products } from '../../data/products';
+import { Products } from '../../data/products/products';
 
 @Component({
   selector: 'app-products',

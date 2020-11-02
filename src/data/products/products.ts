@@ -1,4 +1,4 @@
-import { Product } from '../app/models/product.model'
+import { Product } from '../models/product.model'
 
 export let Products: Array<Product> = [
   {

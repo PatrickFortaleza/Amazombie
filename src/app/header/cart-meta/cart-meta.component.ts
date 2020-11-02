@@ -1,8 +1,8 @@
 import { Component, OnInit, AfterViewInit, ChangeDetectionStrategy } from '@angular/core';
 import { Observable, bindCallback } from 'rxjs';
 import { Store } from '@ngrx/store';
-import { Product } from '../../models/product.model';
-import { AppState } from '../../app.state';
+import { Product } from '../../../data/models/product.model';
+import { AppState } from '../../../data/app.state';
 
 
 @Component({

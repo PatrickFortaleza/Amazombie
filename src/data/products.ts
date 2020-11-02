@@ -1,4 +1,6 @@
-export let Products: Array<Object> = [
+import { Product } from '../app/models/product.model'
+
+export let Products: Array<Product> = [
   {
     title: 'Tier A',
     price: 399.99,

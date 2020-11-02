@@ -3,8 +3,6 @@ import { Observable, bindCallback } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { Product } from '../../models/product.model';
 import { AppState } from '../../app.state';
-import { map, filter, switchMap } from 'rxjs/operators'
-import { Products } from 'src/data/products';
 
 
 @Component({

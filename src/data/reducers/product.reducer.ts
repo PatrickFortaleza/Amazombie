@@ -10,77 +10,73 @@ const newState = (state, newData) => {
 export function reducer(state: State = initialState, action: ProductActions.Actions) {
   switch(action.type) {
       case ProductActions.ADD_PRODUCT:
-          // return {
-          //   ...state,
-          //   products: [...state.products, action.payload],
-          //   total: state.total += 1 
-          // }
+          // Initialize a new state object, with the addition fo a new product
           let currstate1 = newState(state, {
             cart: [...state.cart, action.payload],
             total: 0
           })
-          // condense the cart if there are multiple
-          const condenseCart = Object.values([...currstate1.cart].reduce((item, { id, quantity, title, price }) => {
-            item[id] = { id, quantity: (item[id] ? item[id].quantity : 0) + quantity, title, price  }
+          // condense the cart if there are multiple, finds matching id's and increases quantity
+          const condenseCart = Object.values([...currstate1.cart].reduce((item, { id, quantity, title, subtitle, imagePath, desc, price }) => {
+            item[id] = { id, quantity: (item[id] ? item[id].quantity : 0) + quantity, title, subtitle, imagePath, desc, price  }
             return item;
           }, {}));
+          // Reassign the state's cart object to the condensed cart
           currstate1.cart = condenseCart;
-
-          // Get totals
+          // Perform map reduce to get the total prices of all items 
           let totalPrices = currstate1.cart.map((c) => {
             let totalPrice = c.quantity * c.price
             return totalPrice
           }).reduce((a, b) => a + b, 0);
-
+          // Reassign the total to the current state
           currstate1.total = totalPrices.toFixed(2);
-          
+          // Return mutated state
           return currstate1;
       case ProductActions.DEC_PRODUCT:
+          // Initialize a new state object
           let currstate2 = newState(state, {
             cart: state.cart,
             total: state.total
           })
-
+          // Decrease the quantity of the item based on ID from action.payload
           const decreasedCart = Object.values([...currstate2.cart].map((c) => {
             if(c.id === action.payload && c.quantity > 1){
-              // c[quantity] = 
              c = {...c, quantity: c.quantity - 1}
              return c;
             }else{
               return c;
             }
           }, {}))
-          
+          //Reassign the cart array to the decreased cart
           currstate2.cart = decreasedCart;
-
+          // Calculate total prices of the cart using map reduce
           let totalPrices2 = currstate2.cart.map((c) => {
             let totalPrice = c.quantity * c.price
             return totalPrice
           }).reduce((a, b) => a + b, 0);
-
+          // reassign the total to the mutated state total
           currstate2.total = totalPrices2.toFixed(2);
+          // Return mutated state
           return currstate2;
       case ProductActions.DEL_PRODUCT:
-        console.log(`Delete? ${action.payload}`);
+        // Initialize a new state object
         let currstate3 = newState(state, {
           cart: state.cart,
           total: state.total
         })
-
+        // filter through the current cart, return items that have an id that != action.payload which is an id
         const deletedCart = currstate3.cart.filter((c) => {
           return c.id != action.payload
         })
-
+        // Reassign the cart state to the new array from above
         currstate3.cart = deletedCart;
-
+        // Calculate total prices of the cart using map reduce
         let totalPrices3 = currstate3.cart.map((c) => {
           let totalPrice = c.quantity * c.price
           return totalPrice
         }).reduce((a, b) => a + b, 0);
-
-        currstate3.total = totalPrices3;
-
-
+        // reassign the cart total to the mutated state total
+        currstate3.total = totalPrices3.toFixed(2);
+        // Return new state
         return currstate3;
       default:
           return state;

@@ -5,8 +5,6 @@ import { Product } from '../../../data/models/product.model'
 import * as ProductActions from '../../../data/actions/product.actions';
 import { Products } from '../../../data/products/products';
 
-import { OneProduct } from '../product.model';
-
 @Component({
   selector: 'app-product-item',
   templateUrl: './product-item.component.html',
@@ -14,35 +12,8 @@ import { OneProduct } from '../product.model';
 })
 export class ProductItemComponent implements OnInit {
 
-  products: OneProduct[] = [
-    new OneProduct(
-      'Get Those Zombies Off My Lawn', 
-      'Tier A', 
-      'Lorem ipsum dolor, sit amet consectetur adipisicing elit.',
-      5,
-      0,
-      899.99,
-      1,
-      '../../../assets/images/tier-1.png'),
-    new OneProduct(
-      'Get Those Zombies Off My Lawn', 
-      'Tier B', 
-      'Lorem ipsum dolor, sit amet consectetur adipisicing elit.',
-      4,
-      1,
-      599.99,
-      2,
-      '../../../assets/images/tier-2.png'),
-    new OneProduct(
-      'Get Those Zombies Off My Lawn', 
-      'Tier C', 
-      'Lorem ipsum dolor, sit amet consectetur adipisicing elit.',
-      3,
-      1,
-      399.99,
-      3,
-      '../../../assets/images/tier-3.png'),
-  ]
+  products: Product[] = Products
+
 
   addProduct($event) {
     let targetButton: HTMLElement = $event.target.closest('button');

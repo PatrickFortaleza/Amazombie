@@ -2,15 +2,17 @@ import { State } from '../models/state.model'
 import * as ProductActions from './../actions/product.actions';
 import { initialState } from '../app.state';
 
-
+// Allows us to mutate state
 const newState = (state, newData) => {
   return Object.assign({}, state, newData)
 }
 
+// function that saves state to localstorage
 function setSavedState(state: State, localStorageKey: string) {
   localStorage.setItem(localStorageKey, JSON.stringify(state));
 }
 
+// function that gets saved state from local storage
 function getSavedState(localStorageKey: string): any {
   return JSON.parse(localStorage.getItem(localStorageKey));
 }
@@ -21,14 +23,22 @@ const localStorageKey = '__app_storage__';
 export function reducer(state: State = initialState, action: ProductActions.Actions) {
   switch(action.type) {
       case ProductActions.INIT_CART:
+          // Retrieved local storage state
           const savedState = getSavedState(localStorageKey);
 
-          let currstate0 = newState(state, {
-            cart: savedState.cart || [],
-            total: savedState.total || 0,
-          })
+          // Check if there is anything in local storage
+          if( savedState && savedState.cart.length > 1 && savedState.total > 0){
+            // if there is, reassign state
+            let currstate0 = newState(state, {
+              cart: savedState.cart || [],
+              total: savedState.total || 0,
+            })
+            return currstate0;
+          }else{
+            // if there isnt anything in local storage, just return state.
+            return state;
+          }
 
-          return currstate0;
       case ProductActions.ADD_PRODUCT:
           // Initialize a new state object, with the addition fo a new product
           let currstate1 = newState(state, {

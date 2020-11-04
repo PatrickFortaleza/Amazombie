@@ -4,7 +4,7 @@
 <h6>In Cart:</h6>
 <ul>
     <li *ngFor="let product of products | async">
-      <button>remove</button> <button [id]="product.id" (click)="removeProduct($event)">-</button>{{ product.title }} <button [id]="product.id" (click)="addProduct($event)">+</button> Quantity: {{ product.quantity }}
+      <button [id]="product.id" (click)="deleteProduct($event)" >remove</button> <button [id]="product.id" (click)="removeProduct($event)">-</button>{{ product.title }} <button [id]="product.id" (click)="addProduct($event)">+</button> Quantity: {{ product.quantity }}
     </li>
 </ul>
 

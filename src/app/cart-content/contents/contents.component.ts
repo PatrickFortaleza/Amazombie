@@ -32,6 +32,11 @@ export class ContentsComponent implements OnInit {
     this.store.dispatch(new ProductActions.AddProduct(targetProduct))
   }
 
+  removeProduct(){
+    console.log('not working yet')
+    this.store.dispatch(new ProductActions.DecProduct(1))
+  }
+
   ngOnInit(): void {
   }
 

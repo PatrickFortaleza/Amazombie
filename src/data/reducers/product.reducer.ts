@@ -35,6 +35,9 @@ export function reducer(state: State = initialState, action: ProductActions.Acti
           currstate.total = totalPrices.toFixed(2);
           
           return currstate;
+      case ProductActions.DEC_PRODUCT:
+          console.log('Decreased (?)');
+          return state;
       default:
           return state;
   }

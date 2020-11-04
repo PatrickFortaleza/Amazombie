@@ -7,8 +7,28 @@ const newState = (state, newData) => {
   return Object.assign({}, state, newData)
 }
 
+function setSavedState(state: State, localStorageKey: string) {
+  localStorage.setItem(localStorageKey, JSON.stringify(state));
+}
+
+function getSavedState(localStorageKey: string): any {
+  return JSON.parse(localStorage.getItem(localStorageKey));
+}
+
+// the key for the local storage.
+const localStorageKey = '__app_storage__';
+
 export function reducer(state: State = initialState, action: ProductActions.Actions) {
   switch(action.type) {
+      case ProductActions.INIT_CART:
+          const savedState = getSavedState(localStorageKey);
+
+          let currstate0 = newState(state, {
+            cart: savedState.cart || [],
+            total: savedState.total || 0,
+          })
+
+          return currstate0;
       case ProductActions.ADD_PRODUCT:
           // Initialize a new state object, with the addition fo a new product
           let currstate1 = newState(state, {
@@ -29,6 +49,8 @@ export function reducer(state: State = initialState, action: ProductActions.Acti
           }).reduce((a, b) => a + b, 0);
           // Reassign the total to the current state
           currstate1.total = totalPrices.toFixed(2);
+          // Save state to local storage
+          setSavedState(currstate1, localStorageKey);
           // Return mutated state
           return currstate1;
       case ProductActions.DEC_PRODUCT:
@@ -55,6 +77,8 @@ export function reducer(state: State = initialState, action: ProductActions.Acti
           }).reduce((a, b) => a + b, 0);
           // reassign the total to the mutated state total
           currstate2.total = totalPrices2.toFixed(2);
+          // save state to localstorage
+          setSavedState(currstate2, localStorageKey);
           // Return mutated state
           return currstate2;
       case ProductActions.DEL_PRODUCT:
@@ -76,6 +100,8 @@ export function reducer(state: State = initialState, action: ProductActions.Acti
         }).reduce((a, b) => a + b, 0);
         // reassign the cart total to the mutated state total
         currstate3.total = totalPrices3.toFixed(2);
+        // save state to localstorage
+        setSavedState(currstate3, localStorageKey);
         // Return new state
         return currstate3;
       default:

@@ -25,7 +25,6 @@ export class ProductItemComponent implements OnInit {
     let targetProduct: Product = result[0]
     if(!targetProduct) return null;
     this.store.dispatch(new ProductActions.AddProduct(targetProduct))
-    // this.store.dispatch(new TutorialActions.AddTutorial({name: name, url: url}) )
   }
 
   constructor(private store: Store<AppState>) {}

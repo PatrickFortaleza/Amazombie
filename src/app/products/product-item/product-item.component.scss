@@ -1,0 +1,154 @@
+@import 'src/sass/variables';
+@import 'src/sass/mixins';
+@import 'src/sass/typography';
+@import 'src/sass/layouts';
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+li {
+  background: $black;
+  margin: 20px;
+  position: relative;
+  padding: 20px 30px;
+  padding-top: 70px;
+  border-radius: 5px;
+  max-width: 400px;
+  overflow: hidden;
+
+  &:last-of-type{
+    margin-right: 0;
+  }
+
+  @media screen and (min-width: 500px){
+    overflow: visible;
+  }
+}
+
+p.desc {
+  max-width: 100% !important;
+  margin-top: 7px;
+
+
+  @media screen and (min-width: 500px){
+    max-width: 70% !important;
+  }
+}
+
+p.subtitle {
+  position: absolute;
+  max-width: 100%;
+  left: 0;
+  top: 0;
+  border-left: 7px solid $dark-ruby;
+  padding: 20px;
+  text-transform: uppercase;
+  border-top-left-radius: 5px;
+  font-size: 20px;
+  letter-spacing: 0.01em;
+}
+
+h3{
+  max-width: 100%;
+  font-size: 1.7em !important;
+  margin-top: 7px;
+
+  @media screen and (min-width: 500px){
+    max-width: 85%;
+  }
+}
+
+.rating{
+  margin-top: 7px;
+}
+
+.rating svg{
+  fill: goldenrod;
+  height: 17px;
+  width: 17px;
+  margin-right: 5px;
+}
+
+p.price {
+  background: $light-green;
+  position: relative;
+  color: white;
+  display: inline-block;
+  font-weight: bold;
+  font-size: 1em;
+  margin-top: 7px;
+  padding: 5px 35px 5px 15px;
+
+  &::after {
+    position: absolute;
+    right: -2px;
+    top: 50%;
+    transform: translateY(-50%);
+    content: "";
+    width: 0; 
+    height: 0; 
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent; 
+    border-right:20px solid $black; 
+  }
+
+}
+
+.buffer {
+  height: 150px;
+  width: 100%;
+}
+
+.image-container {
+  position: absolute;
+  right: -5%;
+  height: 200px;
+  width: 200px;
+  bottom: 40%;
+  transform: translateY(50%);
+  z-index: 4000;
+
+  img{
+    width: 100%;
+  }
+}
+
+button {
+  @include body-regular;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 17px;
+  text-decoration: none;
+  color: white;
+  background: $light-green;
+  padding: 13px 20px;
+  border-radius: 2px;
+  box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.25);
+  transition: all .2s ease-in-out;
+  display: inline-block;
+  margin: 7px 7px 7px 0px;
+  border: 0;
+  outline: none;
+
+  &.dark {
+      background: $dark-green;
+
+      &:hover {
+          background: $light-green;
+      }
+  }
+
+  &:hover{
+      background: $dark-green;
+      color: white !important;
+  }
+}
+
+section {
+  padding: 50px 0;
+  background: $dark-black;
+  border-top: 5px solid $dark-ruby;
+}

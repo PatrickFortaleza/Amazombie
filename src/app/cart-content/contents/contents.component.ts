@@ -1,28 +1,24 @@
-import { Component, OnInit, AfterViewInit} from '@angular/core';
-import { Observable} from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { Product } from '../../../data/models/product.model';
 import { AppState } from '../../../data/app.state';
 
-
 @Component({
-  selector: 'app-cart-meta',
-  templateUrl: './cart-meta.component.html',
-  styleUrls: ['./cart-meta.component.scss']
+  selector: 'app-contents',
+  templateUrl: './contents.component.html',
+  styleUrls: ['./contents.component.scss']
 })
-export class CartMetaComponent implements OnInit, AfterViewInit {
-
+export class ContentsComponent implements OnInit {
   products: Observable<Array<Product>>;
   total: Observable<Number>;
 
   constructor(private store: Store<AppState>){
+    this.products = store.select(AppState => AppState.product.cart);
     this.total = store.select(AppState => AppState.product.total);
   }
 
   ngOnInit(): void {
-  }
-
-  ngAfterViewInit(): void {
   }
 
 }

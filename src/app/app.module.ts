@@ -32,6 +32,8 @@ import { TestimonialsComponent } from './home-content/testimonials/testimonials.
 import { TestimonialComponent } from './home-content/testimonials/testimonial/testimonial.component';
 import { ProductsComponent } from './products/products.component';
 import { ProductItemComponent } from './products/product-item/product-item.component';
+import { CartContentComponent } from './cart-content/cart-content.component';
+import { ContentsComponent } from './cart-content/contents/contents.component';
 
 
 @NgModule({
@@ -60,6 +62,8 @@ import { ProductItemComponent } from './products/product-item/product-item.compo
     TestimonialComponent,
     ProductsComponent,
     ProductItemComponent,
+    CartContentComponent,
+    ContentsComponent,
   ],
   imports: [
     BrowserModule,

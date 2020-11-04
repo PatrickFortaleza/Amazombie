@@ -1,0 +1,12 @@
+
+<app-products></app-products>
+<p>contents works!</p>
+<h6>In Cart:</h6>
+<ul>
+    <li *ngFor="let product of products | async">
+        {{ product.title }}
+    </li>
+</ul>
+
+<h6>Total:</h6>
+<p><span>$</span>&nbsp;{{ total | async }}</p>

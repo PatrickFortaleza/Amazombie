@@ -1,3 +1,9 @@
+
+@import 'src/sass/variables';
+@import 'src/sass/mixins';
+@import 'src/sass/typography';
+@import 'src/sass/layouts';
+
 #cart-meta {
     text-decoration: none;
     display: flex;
@@ -8,6 +14,12 @@
     // margin-right: 25px;
     padding-top: 3px;
     padding-bottom: 3px;
+}
+
+.svg-cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 #cart-meta .cart-wrapper{
@@ -27,6 +39,10 @@
     border: solid 1px #474343;
     font-size: 14px;
     display: flex;
+
+    span {
+      color: $light-green;
+    }
 }
 
 

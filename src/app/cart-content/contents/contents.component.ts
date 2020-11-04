@@ -32,9 +32,11 @@ export class ContentsComponent implements OnInit {
     this.store.dispatch(new ProductActions.AddProduct(targetProduct))
   }
 
-  removeProduct(){
-    console.log('not working yet')
-    this.store.dispatch(new ProductActions.DecProduct(1))
+  removeProduct($event){
+    let targetButton: HTMLElement = $event.target.closest('button');
+    if(!targetButton) return null;
+    let targetButtonId: number = +targetButton.id;
+    this.store.dispatch(new ProductActions.DecProduct(targetButtonId))
   }
 
   ngOnInit(): void {

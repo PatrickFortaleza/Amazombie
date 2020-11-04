@@ -36,8 +36,32 @@ export function reducer(state: State = initialState, action: ProductActions.Acti
           
           return currstate;
       case ProductActions.DEC_PRODUCT:
-          console.log('Decreased (?)');
-          return state;
+          console.log(`Decreased (?) ${action.payload}`);
+          let cstate = newState(state, {
+            cart: state.cart,
+            total: state.total
+          })
+
+          const decreasedCart = Object.values([...cstate.cart].map((c) => {
+            if(c.id === action.payload && c.quantity > 1){
+              // c[quantity] = 
+             c = {...c, quantity: c.quantity - 1}
+             return c;
+            }else{
+              return c;
+            }
+          }, {}))
+          
+
+          cstate.cart = decreasedCart;
+
+          let totalPrices2 = cstate.cart.map((c) => {
+            let totalPrice = c.quantity * c.price
+            return totalPrice
+          }).reduce((a, b) => a + b, 0);
+
+          cstate.total = totalPrices2.toFixed(2);
+          return cstate;
       default:
           return state;
   }

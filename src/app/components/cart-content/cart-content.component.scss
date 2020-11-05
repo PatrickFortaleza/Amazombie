@@ -1,0 +1,26 @@
+@import 'src/sass/variables';
+@import 'src/sass/mixins';
+@import 'src/sass/typography';
+@import 'src/sass/layouts';
+
+section{
+  background: $dark-black;
+}
+
+.wrap {
+  margin: auto;
+}
+
+.cart {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+
+  & > *:first-child{
+    margin-right: 50px;
+  }
+
+  @media screen and (min-width: 1300px){
+    flex-direction: row;
+  }
+}

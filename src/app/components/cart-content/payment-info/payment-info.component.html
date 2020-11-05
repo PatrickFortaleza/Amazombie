@@ -1,0 +1,79 @@
+<section class="payment">
+  <h4 class="white uppercase">Payment Information</h4>
+
+
+  <form id="payment-info">
+    <div class="fieldset payment-method">
+      <label>Payment Method:</label>
+      <div class="fs-row">
+        <div class="container">
+          <label class="button" for="credit">
+            <input type="radio" checked id="credit" name="pMethod" value="Credit">
+            <div class="btn">
+              <div class="svg-cont">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M22 4h-20c-1.104 0-2 .896-2 2v12c0 1.104.896 2 2 2h20c1.104 0 2-.896 2-2v-12c0-1.104-.896-2-2-2zm0 13.5c0 .276-.224.5-.5.5h-19c-.276 0-.5-.224-.5-.5v-6.5h20v6.5zm0-9.5h-20v-1.5c0-.276.224-.5.5-.5h19c.276 0 .5.224.5.5v1.5zm-9 6h-9v-1h9v1zm-3 2h-6v-1h6v1zm10-2h-3v-1h3v1z"/></svg>
+              </div>
+              Credit Card
+            </div>
+          </label>
+        </div>
+        <div class="container">
+          <label class="button" for="paypal">
+            <input type="radio" id="paypal" name="pMethod" value="Paypal">
+            <div class="btn">
+              <div class="svg-cont">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M22 9.761c0 .536-.065 1.084-.169 1.627-.847 4.419-3.746 5.946-7.449 5.946h-.572c-.453 0-.838.334-.908.789l-.803 5.09c-.071.453-.456.787-.908.787h-2.736c-.39 0-.688-.348-.628-.732l1.386-8.88.062-.056h2.155c5.235 0 8.509-2.618 9.473-7.568.812.814 1.097 1.876 1.097 2.997zm-14.216 4.252c.116-.826.459-1.177 1.385-1.179l2.26-.002c4.574 0 7.198-2.09 8.023-6.39.8-4.134-2.102-6.442-6.031-6.442h-7.344c-.517 0-.958.382-1.038.901-2.304 14.835-2.97 18.607-3.038 19.758-.021.362.269.672.635.672h3.989l1.159-7.318z"/></svg>
+              </div>
+              Paypal
+            </div>
+          </label>
+        </div>
+      </div>
+    </div> <!--- end payment method -->
+    <div class="fieldset full-name">
+      <label for="fname">Card Holder Name:</label>
+      <input type="text" placeholder="Bruce Brutus Wayne" id="fname" name="fname">
+    </div> <!--- end full name -->
+    <div class="fieldset credit-number">
+      <label for="cNumber">Card Number:</label>
+      <input type="text" placeholder="1234 1234 1234 5678" id="cNumber" name="cNumber">
+    </div> <!--- end card number -->
+
+    <div class="fs-row">
+      <div class="fs-col">
+        <label>Expiration Date</label>
+        <div class="fs-flex">
+          <div class="fieldset exp-date-m">
+            <input type="text" placeholder="MM" id="month" name="month">
+          </div>
+          <div class="fieldset exp-date-y">
+            <input type="text" placeholder="YYYY" id="year" name="year">
+          </div>
+        </div>
+      </div>
+      <div class="fs-col">
+        <div class="fieldset">
+          <label>CVV:</label>
+          <input type="text" placeholder="XXX" id="cvv" name="cvv">
+        </div>
+      </div><!--end fs-col -->
+    </div><!-- end fs-row -->
+
+    <div class="fs-row">
+      <div class="fs-col">
+        <div class="fieldset">
+          <label for="shipping">Shipping Address:</label>
+          <input type="text" placeholder="525 Seymour Street" id="shipping" name="shipping">
+        </div>
+      </div>
+      <div class="fs-col">
+        <div class="fieldset">
+          <label for="postal">Postal Code:</label>
+          <input type="text" placeholder="V4R 8G9"  id="postal" name="postal">
+        </div>
+      </div>
+    </div> <!--end fs-row-->
+
+    <input type="submit" value="checkout"/>
+  </form>
+</section>

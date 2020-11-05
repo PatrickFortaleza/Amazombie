@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
-import { Product } from '../../../data/models/product.model';
-import { AppState } from '../../../data/app.state';
-import * as ProductActions from '../../../data/actions/product.actions';
-import { Products } from '../../../data/products/products';
+import { Product } from '../../../../data/models/product.model';
+import { AppState } from '../../../../data/app.state';
+import * as ProductActions from '../../../../data/actions/product.actions';
+import { Products } from '../../../../data/products/products';
 
 @Component({
   selector: 'app-contents',
@@ -40,7 +40,7 @@ export class ContentsComponent implements OnInit {
   }
 
   deleteProduct($event){
-    let targetButton: HTMLElement = $event.target.closest('button');
+    let targetButton: HTMLElement = $event.target.closest('a');
     if(!targetButton) return null;
     let targetButtonId: number = +targetButton.id;
     this.store.dispatch(new ProductActions.DelProduct(targetButtonId))

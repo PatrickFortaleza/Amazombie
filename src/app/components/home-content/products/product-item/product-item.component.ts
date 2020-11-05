@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { AppState } from '../../../data/app.state';
-import { Product } from '../../../data/models/product.model'
-import * as ProductActions from '../../../data/actions/product.actions';
-import { Products } from '../../../data/products/products';
+import { AppState } from '../../../../../data/app.state';
+import { Product } from '../../../../../data/models/product.model'
+import * as ProductActions from '../../../../../data/actions/product.actions';
+import { Products } from '../../../../../data/products/products';
 
 @Component({
   selector: 'app-product-item',

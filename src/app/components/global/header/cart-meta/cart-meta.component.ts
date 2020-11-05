@@ -1,8 +1,8 @@
 import { Component, OnInit, AfterViewInit} from '@angular/core';
 import { Observable} from 'rxjs';
 import { Store } from '@ngrx/store';
-import { Product } from '../../../data/models/product.model';
-import { AppState } from '../../../data/app.state';
+import { Product } from '../../../../../data/models/product.model';
+import { AppState } from '../../../../../data/app.state';
 
 
 @Component({

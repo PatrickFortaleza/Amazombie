@@ -9,31 +9,32 @@ import { environment } from '../environments/environment'; // Angular CLI enviro
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { LogoComponent } from './header/logo/logo.component';
-import { NavigationComponent } from './header/navigation/navigation.component';
-import { HamburgerComponent } from './header/hamburger/hamburger.component';
-import { CartMetaComponent } from './header/cart-meta/cart-meta.component';
-import { SubHeaderComponent } from './header/sub-header/sub-header.component';
-import { CarouselComponent } from './carousel/carousel.component';
-import { SlideComponent } from './carousel/slide/slide.component';
-import { NextButtonComponent } from './carousel/next-button/next-button.component';
-import { PrevButtonComponent } from './carousel/prev-button/prev-button.component';
-import { HomeContentComponent } from './home-content/home-content.component';
-import { CardSpreadComponent } from './home-content/card-spread/card-spread.component';
-import { CardComponent } from './home-content/card-spread/card/card.component';
-import { FooterComponent } from './footer/footer.component';
-import { BrandComponent } from './footer/brand/brand.component';
-import { FooterNavComponent } from './footer/footer-nav/footer-nav.component';
-import { FooterSocialComponent } from './footer/footer-social/footer-social.component';
-import { SubscribeComponent } from './footer/subscribe/subscribe.component';
-import { FigureComponent } from './home-content/figure/figure.component';
-import { TestimonialsComponent } from './home-content/testimonials/testimonials.component';
-import { TestimonialComponent } from './home-content/testimonials/testimonial/testimonial.component';
-import { ProductsComponent } from './products/products.component';
-import { ProductItemComponent } from './products/product-item/product-item.component';
-import { CartContentComponent } from './cart-content/cart-content.component';
-import { ContentsComponent } from './cart-content/contents/contents.component';
+import { HeaderComponent } from './components/global/header/header.component';
+import { LogoComponent } from './components/global/header/logo/logo.component';
+import { NavigationComponent } from './components/global/header/navigation/navigation.component';
+import { HamburgerComponent } from './components/global/header/hamburger/hamburger.component';
+import { CartMetaComponent } from './components/global/header/cart-meta/cart-meta.component';
+import { SubHeaderComponent } from './components/global/header/sub-header/sub-header.component';
+import { CarouselComponent } from './components/home-content/carousel/carousel.component';
+import { SlideComponent } from './components/home-content/carousel/slide/slide.component';
+import { NextButtonComponent } from './components/home-content/carousel/next-button/next-button.component';
+import { PrevButtonComponent } from './components/home-content/carousel/prev-button/prev-button.component';
+import { HomeContentComponent } from './components/home-content/home-content.component';
+import { CardSpreadComponent } from './components/home-content/card-spread/card-spread.component';
+import { CardComponent } from './components/home-content/card-spread/card/card.component';
+import { FooterComponent } from './components/global/footer/footer.component';
+import { BrandComponent } from './components/global/footer/brand/brand.component';
+import { FooterNavComponent } from './components/global/footer/footer-nav/footer-nav.component';
+import { FooterSocialComponent } from './components/global/footer/footer-social/footer-social.component';
+import { SubscribeComponent } from './components/global/footer/subscribe/subscribe.component';
+import { FigureComponent } from './components/home-content/figure/figure.component';
+import { TestimonialsComponent } from './components/home-content/testimonials/testimonials.component';
+import { TestimonialComponent } from './components/home-content/testimonials/testimonial/testimonial.component';
+import { ProductsComponent } from './components/home-content/products/products.component';
+import { ProductItemComponent } from './components/home-content/products/product-item/product-item.component';
+import { CartContentComponent } from './components/cart-content/cart-content.component';
+import { ContentsComponent } from './components/cart-content/contents/contents.component';
+import { PaymentInfoComponent } from './components/cart-content/payment-info/payment-info.component';
 
 
 @NgModule({
@@ -64,6 +65,7 @@ import { ContentsComponent } from './cart-content/contents/contents.component';
     ProductItemComponent,
     CartContentComponent,
     ContentsComponent,
+    PaymentInfoComponent,
   ],
   imports: [
     BrowserModule,

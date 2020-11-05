@@ -80,7 +80,7 @@ figure.figure {
 
 
 #home-section-02 {
-  background-image: url('../../../assets/images/figure-bg-img-sm.png');
+  background-image: url('./../../../../assets/images/figure-bg-img-sm.png');
   background-size: cover;
   background-position: 50% 50%;
   position: relative;
@@ -107,10 +107,10 @@ figure.figure {
   }
 
   @media screen and (min-width: 767px){
-      background-image: url('../../../assets/images/figure-bg-img-md.png');
+      background-image: url('./../../../../assets/images/figure-bg-img-md.png');
   }
 
   @media screen and (min-width: 1200px){
-      background-image: url('../../../assets/images/figure-bg-img-lg.png');
+      background-image: url('./../../../../assets/images/figure-bg-img-lg.png');
   }
 }

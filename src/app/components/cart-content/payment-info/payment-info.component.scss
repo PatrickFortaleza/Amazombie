@@ -128,16 +128,20 @@ label.button{
   color: white;
   border-radius: 3px;
   border: #6F6F6F 1px solid;
-  min-width: 130px;
+  min-width: 100px;
   margin-right: 20px;
-  padding: 13px;
+  padding: 7px;
   transition: .2s ease-in-out;
   cursor: pointer;
+
+  @media screen and (min-width: 370px){
+    padding: 13px;
+    min-width: 130px;
+  }
 
   &:hover{
     background: $dark-grey;
   }
-
   .svg-cont {
     display: flex;
     flex-direction: column;
@@ -149,6 +153,10 @@ label.button{
     fill: white;
     margin-right: 7px;
   }
+}
+
+.fs-row > .container:nth-child(2) .btn{
+  margin-right: 0;
 }
 
 

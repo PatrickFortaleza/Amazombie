@@ -16,7 +16,7 @@ section{
   justify-content: space-between;
   flex-direction: column;
 
-  & > *:first-child{
+  & > section:first-child{
     margin-right: 50px;
   }
 

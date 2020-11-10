@@ -29,6 +29,26 @@ div.headings p{
   }
 }
 
+.wrap-mobile{
+  display: flex;
+  flex-direction: row;
+}
+
+
+.wrap-mobile-inner {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+}
+
+@media screen and (min-width: 767px){
+  .wrap-mobile,
+  .wrap-mobile-inner {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
 li, div.headings {
   display: flex;
   flex-direction: column;
@@ -50,7 +70,7 @@ li, div.headings {
   .col.product{
     width: 250px;
 
-    @media screen and (min-width: 372px){
+    @media screen and (min-width: 370px){
       width: 300px;
     }
 
@@ -60,6 +80,11 @@ li, div.headings {
 
     .col-flex{
       display: flex;
+      flex-direction: column-reverse;
+
+      @media screen and (min-width: 370px) {
+        flex-direction: row;
+      }
     }
 
     .image-container {
@@ -75,7 +100,11 @@ li, div.headings {
     }
 
     .product-title {
-      margin-left: 25px;
+      margin-left: 0px;
+
+      @media screen and (min-width: 370px) {
+        margin-left: 25px;
+      }
     }
 
     .product-title p{
@@ -99,7 +128,13 @@ li, div.headings {
   }
 
   .col.quantity {
-    width: 100px;
+    width: auto;
+    margin-right: 0;
+
+    @media screen and (min-width: 767px){
+      width: 120px;
+      margin-right: 40px;
+    }
 
     @media screen and (min-width: 1400px){
       width: 150px;
@@ -115,11 +150,18 @@ li, div.headings {
     }
     .quantity-set{
       display: inline;
+      white-space: nowrap;
       border: solid 1px white;
-      padding: 7px;
+      padding: 3px;
+      font-size: 12px;
       border-radius: 3px;
       color: white;
       @include body-light;
+
+      @media screen and (min-width: 767px){
+        padding: 7px;
+        font-size: 18px;
+      }
 
       button {
         background: none;
@@ -167,7 +209,11 @@ li, div.headings {
   }
 
   .col.delete {
+    @media screen and (max-width: 767px){
+      text-align: right;
+    }
     a{
+      display: inline-block;
       cursor: pointer;
 
       &:hover svg{
@@ -224,7 +270,7 @@ li, div.headings {
     }
 
     .col {
-      width: 80px;
+      width: 100px;
       text-align: right;
       margin-right: 20px;
       line-height: 24px;

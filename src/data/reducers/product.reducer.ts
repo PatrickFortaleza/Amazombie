@@ -40,7 +40,7 @@ export function reducer(state: State = initialState, action: ProductActions.Acti
           }
 
       case ProductActions.ADD_PRODUCT:
-          // Initialize a new state object, with the addition fo a new product
+          // Initialize a new state object, with the addition of a new product
           let currstate1 = newState(state, {
             cart: [...state.cart, action.payload],
             total: 0

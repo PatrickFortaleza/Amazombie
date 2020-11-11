@@ -37,6 +37,8 @@ import { ContentsComponent } from './components/cart-content/contents/contents.c
 import { PaymentInfoComponent } from './components/cart-content/payment-info/payment-info.component';
 import { ShopContentComponent } from './components/shop-content/shop-content.component';
 import { BannerComponent } from './components/shop-content/banner/banner.component';
+import { ShopProductsComponent } from './components/shop-content/shop-products/shop-products.component';
+import { ShopProductItemComponent } from './components/shop-content/shop-products/shop-product-item/shop-product-item.component';
 
 
 @NgModule({
@@ -70,6 +72,8 @@ import { BannerComponent } from './components/shop-content/banner/banner.compone
     PaymentInfoComponent,
     ShopContentComponent,
     BannerComponent,
+    ShopProductsComponent,
+    ShopProductItemComponent,
   ],
   imports: [
     BrowserModule,

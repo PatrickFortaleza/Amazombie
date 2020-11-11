@@ -1,94 +1,51 @@
-<section class="default home-section-02" id="home-section-02">
-  <div class="wrap">
-      <figure class="figure">
-          <div class="figure-img">
-              <img src="../../../assets/images/crate.png" alt="crate"/>
-          </div>
-          <figcaption class="figcaption">
-              <div>
-                  <h4 class="tier">Tier A</h4>
-                  <h3 class="white">GET THOSE ZOMBIES OFF MY LAWN</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vel auctor erat</p>
-                  <div class="rating">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"/></svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"/></svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"/></svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"/></svg>
-                  </div>
-                  <h4 class="price">$499.99</h4>
-                  <a href="shopAll.html" class="button">ADD TO CART</a>
-              </div>
-          </figcaption>
-      </figure>
-  </div>
-</section>
-<section class="default last-items">
-  <div class="wrap">
-    <h4 class="section-title white">"Get Those Zombies Off My Lawn"</h4>
-    <div class="items-flex">
-      <div class="items-label">
-        <div class="copy-container">
-          <h4 class="tier-sub">Tier A</h4>
-          <h3>Last Shipment</h3>
-        </div>
-      </div>
-      <section class="card-list">
-        <article class="card">
-          <p class="num-meta">01</p>
-          <header class="card-header">
-            <div class="img-container">
-              <img src="../../../../../assets/images/item1a.png">
-            </div>  
-          </header>
-          <h3 class="tier">Tier A</h3>
-          <h4 class="item-title"> Chicken Caesar SnackWrap</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-        </article>
-        <article class="card">
-          <p class="num-meta">01</p>
-          <header class="card-header">
-            <div class="img-container">
-              <img src="../../../../../assets/images/item1a.png">
-            </div>  
-          </header>
-          <h3 class="tier">Tier A</h3>
-          <h4 class="item-title"> Chicken Caesar SnackWrap</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-        </article>
-        <article class="card">
-          <p class="num-meta">01</p>
-          <header class="card-header">
-            <div class="img-container">
-              <img src="../../../../../assets/images/item1a.png">
-            </div>  
-          </header>
-          <h3 class="tier">Tier A</h3>
-          <h4 class="item-title"> Chicken Caesar SnackWrap</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-        </article>
-        <article class="card">
-          <p class="num-meta">01</p>
-          <header class="card-header">
-            <div class="img-container">
-              <img src="../../../../../assets/images/item1a.png">
-            </div>  
-          </header>
-          <h3 class="tier">Tier A</h3>
-          <h4 class="item-title"> Chicken Caesar SnackWrap</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-        </article>
-        <article class="card">
-          <p class="num-meta">01</p>
-          <header class="card-header">
-            <div class="img-container">
-              <img src="../../../../../assets/images/item1a.png">
-            </div>  
-          </header>
-          <h3 class="tier">Tier A</h3>
-          <h4 class="item-title"> Chicken Caesar SnackWrap</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-        </article>
-      </section>
+<div *ngFor="let product of products; let index = index" class="product-figure">
+  <section class="default home-section-02">
+    <div class="wrap">
+        <figure class="figure">
+            <div class="figure-img">
+                <p class="img-meta">0{{ index + 1 }}</p>
+                <img [src]="product.imagePath" alt="crate"/>
+            </div>
+            <figcaption class="figcaption">
+                <div>
+                    <h4 class="tier">{{ product.title }}</h4>
+                    <h3 class="white">{{ product.subtitle }}</h3>
+                    <p>{{ product.desc }}</p>
+                    <div class="rating">
+                      <svg *ngFor="let i of [].constructor(product.stars)" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"/></svg>
+                      <svg *ngFor="let i of [].constructor(product.halfStars)" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 5.173l2.335 4.817 5.305.732-3.861 3.71.942 5.27-4.721-2.524v-12.005zm0-4.586l-3.668 7.568-8.332 1.151 6.064 5.828-1.48 8.279 7.416-3.967 7.416 3.966-1.48-8.279 6.064-5.827-8.332-1.15-3.668-7.569z"/></svg>
+                    </div>
+                    <h4 class="price">${{product.price}}</h4>
+                    <button [id]="product.id" class="button">ADD TO CART</button>
+                </div>
+            </figcaption>
+        </figure>
     </div>
-  </div>
-</section>
+  </section>
+  <section class="default last-items">
+    <div class="wrap">
+      <h4 class="section-title white">"{{ product.subtitle }}"</h4>
+      <div class="items-flex">
+        <div class="items-label">
+          <div class="copy-container">
+            <h4 class="tier-sub">{{ product.title }}</h4>
+            <h3>Last Shipment</h3>
+          </div>
+        </div>
+        <section class="card-list">
+          <article *ngFor="let item of product.lastItems; index as index" class="card">
+            <p class="num-meta">0{{ index + 1}}</p>
+            <header class="card-header">
+              <div class="img-container">
+                <img [src]="item.imagePath">
+              </div>  
+            </header>
+            <h3 class="tier">{{ item.subtitle }}</h3>
+            <h4 class="item-title"> {{ item.title }}</h4>
+            <p>{{ item.desc }}</p>
+          </article>
+        </section>
+      </div>
+    </div>
+  </section>
+</div>

@@ -5,6 +5,7 @@ import { Product } from '../../../../data/models/product.model';
 import { AppState } from '../../../../data/app.state';
 import * as ProductActions from '../../../../data/actions/product.actions';
 import { Products } from '../../../../data/products/products';
+import { isEmpty } from 'rxjs/operators';
 
 @Component({
   selector: 'app-contents',
@@ -13,11 +14,18 @@ import { Products } from '../../../../data/products/products';
 })
 export class ContentsComponent implements OnInit {
   products: Observable<Array<Product>>;
-  total: Observable<Number>;
+  total: Observable<number>;
+  subtotal: Observable<number>;
+  shipping: Observable<number>;
+  tax: Observable<number>; 
+  isEmpty: Boolean;
 
   constructor(private store: Store<AppState>){
     this.products = store.select(AppState => AppState.product.cart);
     this.total = store.select(AppState => AppState.product.total);
+    this.subtotal = store.select(AppState => AppState.product.subtotal);
+    this.shipping = store.select(AppState => AppState.product.shipping);
+    this.tax = store.select(AppState => AppState.product.tax);
   }
 
   addProduct($event) {
@@ -47,6 +55,9 @@ export class ContentsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    const result = this.products.pipe(isEmpty());
+    console.log(result);
+    // result.subscribe(x => this.isEmpty = x);
   }
 
 }

@@ -32,6 +32,9 @@ export function reducer(state: State = initialState, action: ProductActions.Acti
             let currstate0 = newState(state, {
               cart: savedState.cart || [],
               total: savedState.total || 0,
+              subtotal : savedState.subtotal || 0,
+              shipping: savedState.shipping ||  419.99,
+              tax: savedState.tax || 0,
             })
             return currstate0;
           }else{
@@ -43,7 +46,10 @@ export function reducer(state: State = initialState, action: ProductActions.Acti
           // Initialize a new state object, with the addition of a new product
           let currstate1 = newState(state, {
             cart: [...state.cart, action.payload],
-            total: 0
+            total: 0,
+            subtotal: 0,
+            shipping: 419.99,
+            tax: 0,
           })
           // condense the cart if there are multiple, finds matching id's and increases quantity
           const condenseCart = Object.values([...currstate1.cart].reduce((item, { id, quantity, title, subtitle, imagePath, desc, price }) => {
@@ -58,7 +64,10 @@ export function reducer(state: State = initialState, action: ProductActions.Acti
             return totalPrice
           }).reduce((a, b) => a + b, 0);
           // Reassign the total to the current state
-          currstate1.total = totalPrices.toFixed(2);
+          currstate1.subtotal = totalPrices.toFixed(2);
+          currstate1.tax = (+totalPrices * 0.14).toFixed(2);
+          currstate1.shipping = 419.99;
+          currstate1.total = (+currstate1.subtotal + +currstate1.tax + +currstate1.shipping).toFixed(2)
           // Save state to local storage
           setSavedState(currstate1, localStorageKey);
           // Return mutated state
@@ -67,7 +76,10 @@ export function reducer(state: State = initialState, action: ProductActions.Acti
           // Initialize a new state object
           let currstate2 = newState(state, {
             cart: state.cart,
-            total: state.total
+            total: state.total,
+            subtotal: state.subtotal,
+            shipping: state.shipping,
+            tax: state.tax,
           })
           // Decrease the quantity of the item based on ID from action.payload
           const decreasedCart = Object.values([...currstate2.cart].map((c) => {
@@ -86,7 +98,10 @@ export function reducer(state: State = initialState, action: ProductActions.Acti
             return totalPrice
           }).reduce((a, b) => a + b, 0);
           // reassign the total to the mutated state total
-          currstate2.total = totalPrices2.toFixed(2);
+          currstate2.subtotal = totalPrices2.toFixed(2);
+          currstate2.tax = (+totalPrices2 * 0.14).toFixed(2);
+          currstate2.shipping = 419.99;
+          currstate2.total = (+currstate2.subtotal + +currstate2.tax + +currstate2.shipping).toFixed(2)
           // save state to localstorage
           setSavedState(currstate2, localStorageKey);
           // Return mutated state
@@ -95,7 +110,10 @@ export function reducer(state: State = initialState, action: ProductActions.Acti
         // Initialize a new state object
         let currstate3 = newState(state, {
           cart: state.cart,
-          total: state.total
+          total: state.total,
+          subtotal: state.subtotal,
+          shipping: state.shipping,
+          tax: state.tax,
         })
         // filter through the current cart, return items that have an id that != action.payload which is an id
         const deletedCart = currstate3.cart.filter((c) => {
@@ -109,7 +127,10 @@ export function reducer(state: State = initialState, action: ProductActions.Acti
           return totalPrice
         }).reduce((a, b) => a + b, 0);
         // reassign the cart total to the mutated state total
-        currstate3.total = totalPrices3.toFixed(2);
+        currstate3.subtotal = totalPrices3.toFixed(2);
+        currstate3.tax = (+totalPrices3 * 0.14).toFixed(2);
+        currstate3.shipping = 419.99;
+        currstate3.total = (+currstate3.subtotal + +currstate3.tax + +currstate3.shipping).toFixed(2)
         // save state to localstorage
         setSavedState(currstate3, localStorageKey);
         // Return new state

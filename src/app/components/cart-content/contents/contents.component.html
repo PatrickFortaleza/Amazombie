@@ -20,7 +20,6 @@
       <!-- <li *ngFor="let product of products | async">
         <button [id]="product.id" (click)="deleteProduct($event)" >remove</button> <button [id]="product.id" (click)="removeProduct($event)">-</button>{{ product.title }} <button [id]="product.id" (click)="addProduct($event)">+</button> Quantity: {{ product.quantity }}
       </li> -->
-
       <li *ngFor="let product of products | async" >
       <div class="wrap-mobile">
         <div class="col product">
@@ -66,10 +65,12 @@
           <div class="col">
               <h6>Subtotal</h6>
               <h6>Shipping</h6>
+              <h6>Tax</h6>
           </div>
           <div class="col">
-              <p>$&nbsp;{{ total | async }}</p>
-              <p>$ 420.00</p>
+              <p>$&nbsp;{{ subtotal | async }}</p>
+              <p>$&nbsp;{{ shipping | async }}</p>
+              <p>$&nbsp;{{ tax | async }}</p>
           </div>
         </div>
         <div class="t-total">

@@ -39,6 +39,8 @@
     border: solid 1px #474343;
     font-size: 14px;
     display: flex;
+    min-width: 100px;
+    text-align: center;
 
     span {
       color: $light-green;

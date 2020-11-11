@@ -2,7 +2,7 @@ import { lastItem } from '../models/lastItem.model';
 import { lastItemCollection } from '../models/lastItemCollection.model';
 
 export let Items: lastItemCollection = {
-  lastItemsA : [
+  1 : [
     new lastItem (
       'Chicken Caesar Snackwrap',
       'Tier A',
@@ -28,9 +28,9 @@ export let Items: lastItemCollection = {
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna odio, aliquam efficitur libero non',
     ),
   ],
-  lastItemsB : [
+  2 : [
     new lastItem (
-      'Chicken Caesar Snackwrap',
+      'Chicken Caesar Snackwrapp',
       'Tier A',
       '../../assets/images/item1a.png',
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna odio, aliquam efficitur libero non',
@@ -54,7 +54,7 @@ export let Items: lastItemCollection = {
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna odio, aliquam efficitur libero non',
     ),
   ],
-  lastItemsC : [
+  3 : [
     new lastItem (
       'Chicken Caesar Snackwrap',
       'Tier A',
@@ -74,7 +74,7 @@ export let Items: lastItemCollection = {
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna odio, aliquam efficitur libero non',
     ),
     new lastItem (
-      'Chicken Caesar Snackwrap',
+      'Chicken Caesar Snackwrappp',
       'Tier A',
       '../../assets/images/item1a.png',
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna odio, aliquam efficitur libero non',

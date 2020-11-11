@@ -11,6 +11,7 @@ export let Products: Array<Product> = [
     desc: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.',
     stars: 4,
     halfStars: 1,
+    lastItems: [],
   },
   {
     title: 'Tier B',
@@ -22,6 +23,7 @@ export let Products: Array<Product> = [
     desc: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.',
     stars: 4,
     halfStars: 0,
+    lastItems: [],
   },
   {
     title: 'Tier C',
@@ -33,6 +35,7 @@ export let Products: Array<Product> = [
     desc: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.',
     stars: 3,
     halfStars: 1,
+    lastItems: [],
   }
 ] 
 

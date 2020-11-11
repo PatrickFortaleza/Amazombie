@@ -15,7 +15,11 @@ export class ShopProductItemComponent implements OnInit {
   products: Product[] = Products
   items: Object = Items
 
-  constructor(private store: Store<AppState>) { }
+  constructor(private store: Store<AppState>) { 
+    this.products.map((p) => {
+      p.lastItems = this.items[p.id]
+    })
+  }
 
   ngOnInit(): void {
   }

@@ -1,5 +1,7 @@
 import { lastItem } from './lastItem.model';
 
 export interface lastItemCollection {
-  lastItems: Array<lastItem>,
+  1: Array<lastItem>,
+  2: Array<lastItem>,
+  3: Array<lastItem>,
 }

@@ -8,8 +8,9 @@ export class Product {
   public desc: String;
   public stars: number;
   public halfStars: number;
+  public lastItems: Array<Object>;
 
-  constructor(title: String, subtitle: String, price: number, id: number, quantity: number, imagePath: String, desc: String, stars: number, halfStars: number){
+  constructor(title: String, subtitle: String, price: number, id: number, quantity: number, imagePath: String, desc: String, stars: number, halfStars: number, lastItems: Array<Object>){
     this.title = title;
     this.subtitle = subtitle;
     this.price = price;
@@ -19,5 +20,6 @@ export class Product {
     this.desc = desc;
     this.stars = stars;
     this.halfStars = halfStars;
+    this.lastItems = lastItems;
   }
 }

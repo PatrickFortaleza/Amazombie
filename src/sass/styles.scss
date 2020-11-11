@@ -19,6 +19,7 @@ button.button {
   display: inline-block;
   border: none;
   cursor: pointer;
+  outline: none;
 
   &.dark {
       background: $dark-green;

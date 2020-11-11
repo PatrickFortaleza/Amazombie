@@ -15,7 +15,7 @@ export let Products: Array<Product> = [
   },
   {
     title: 'Tier B',
-    subtitle: 'Get Those Zombies Off My Lawn',
+    subtitle: 'Turret Syndrome',
     price: 599.99,
     id: 2,
     quantity: 1,
@@ -27,7 +27,7 @@ export let Products: Array<Product> = [
   },
   {
     title: 'Tier C',
-    subtitle: 'Get Those Zombies Off My Lawn',
+    subtitle: 'The Last Of Us',
     price: 399.99,
     id: 3,
     quantity: 1,

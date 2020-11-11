@@ -35,6 +35,8 @@ import { ProductItemComponent } from './components/home-content/products/product
 import { CartContentComponent } from './components/cart-content/cart-content.component';
 import { ContentsComponent } from './components/cart-content/contents/contents.component';
 import { PaymentInfoComponent } from './components/cart-content/payment-info/payment-info.component';
+import { ShopContentComponent } from './components/shop-content/shop-content.component';
+import { BannerComponent } from './components/shop-content/banner/banner.component';
 
 
 @NgModule({
@@ -66,6 +68,8 @@ import { PaymentInfoComponent } from './components/cart-content/payment-info/pay
     CartContentComponent,
     ContentsComponent,
     PaymentInfoComponent,
+    ShopContentComponent,
+    BannerComponent,
   ],
   imports: [
     BrowserModule,
